@@ -6,6 +6,7 @@
 //  Copyright © 2019 Yann Yver. All rights reserved.
 //
 var teams = Team(teamName: [String](), players: [Character]())
+
 var choiceUserOne = 0
 var choiceUserTwo = 0
 
@@ -55,6 +56,21 @@ func createTeams() {
 
 //print name team for verification operation compilation
     print(teams.teamName)
+    createPlayersCharacters()
+}
+
+func createPlayersCharacters() {
+    print("Equipe \(teams.teamName[0]):")
+        createPlayers()
+        teams.players.append(player)
+    print(teams.players[0])
+    
+    print()
+    
+    print("Equipe \(teams.teamName[1]):")
+        createPlayers()
+        teams.players.append(player)
+    print(teams.players[1])
 }
 
 
