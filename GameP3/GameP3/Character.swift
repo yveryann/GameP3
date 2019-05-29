@@ -44,15 +44,15 @@ class Character {
 }
 var player = Character(name: String(), warriorType: Warrior.Colossus)
 
-func addNamePlayer() {
-    print("Entrer un nom de combattant:")
-    player.name.append(getStringFromUser())
-    
-}
 
 func createPlayers() {
-    for i in 1...3 {
-    addNamePlayer()
+    var nameChoice = [player.name]
+    var warriorChoice = [player.warriorType]
+    for i in 0...2 {
+        
+        print("Entrer le nom de votre personnage\(i):")
+        nameChoice.append(getStringFromUser())
+    
     repeat {
         print("Choix personnage \(i) :")
         print("1. Fighter")
@@ -78,7 +78,10 @@ func createPlayers() {
     default:
         break
     }
-        player.warriorType = warriorOne
+        warriorChoice.append(warriorOne)
     }
-
+    print("\(nameChoice)")
+    print("\(warriorChoice)")
 }
+
+

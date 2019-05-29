@@ -49,7 +49,7 @@ createTeams()
 
 func createTeams() {
     
-    for i in 1...2 {
+    for i in 0...1 {
     print("Entrer le nom de l'équipe \(i):")
     teams.teamName.append(getStringFromUser())
     }
@@ -63,15 +63,16 @@ func createPlayersCharacters() {
     print("Equipe \(teams.teamName[0]):")
         createPlayers()
         teams.players.append(player)
-    print(teams.players[0])
+    print(teams)
     
     print()
     
     print("Equipe \(teams.teamName[1]):")
         createPlayers()
         teams.players.append(player)
-    print(teams.players[1])
+    print(teams)
 }
+
 
 
 

@@ -16,7 +16,6 @@ class Team {
         self.players = players
     }
 
-    
 }
 
 
