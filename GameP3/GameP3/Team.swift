@@ -7,15 +7,15 @@
 //
 
 class Team {
-    var teamName: [String]
+    var teamName: String
     var players = [Character]()
     
     
-    init(teamName: [String], players: [Character]) {
+    init(teamName: String, players: [Character]) {
         self.teamName = teamName
         self.players = players
     }
-
+    
 }
 
 

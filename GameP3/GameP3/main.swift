@@ -6,8 +6,9 @@
 //  Copyright © 2019 Yann Yver. All rights reserved.
 //
 
+let start = GameManager()
 
-let start = rules()
+start.rules()
 
 
 
