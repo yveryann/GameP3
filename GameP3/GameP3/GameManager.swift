@@ -8,7 +8,7 @@
 class GameManager {
     
     var teams = [Team]()
-    var player = [Character]()
+    var players = [Character]()
     
     func getStringFromUser() -> String {
         let userChoice = readLine()
@@ -53,12 +53,10 @@ class GameManager {
             
             print("Entrer le nom de l'équipe \(i):")
             let input = getStringFromUser()
-            
-            let team = Team(teamName: input, players: player)
+            let team = Team(teamName: input, players: players)
             teams.append(team)
-            print(teams)
         }
-        
+        print(teams)
         createPlayers()
     }
     
@@ -94,10 +92,10 @@ class GameManager {
             default:
                 break
             }
-            let tempPlayer = Character(name: input, warriorType: warriorOne)
-            player.append(tempPlayer)
+            let tempPlayers = Character(name: input, warriorType: warriorOne)
+            players.append(tempPlayers)
         }
-        print(player)
+            print(players)
     }
-    
+
 }
