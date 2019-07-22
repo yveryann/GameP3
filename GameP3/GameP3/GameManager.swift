@@ -8,28 +8,26 @@
 class GameManager {
     
     var teams = [Team]()
-    // Delete array and use array of Team
-    
     
     func getStringFromUser() -> String {
         let userChoice = readLine()
         if let choice = userChoice { //verify that the unpacking has succeeded: choice!=nil
             return choice
-        } else { // unpacking has failed so choice=nil  - Function does not display the error and crash the program
+        } else { // unwrapping has failed so choice=nil  - Function does not display the error and crash the program
             print("Erreur de saisie !")
             return ""
         }
     }
     
     func getIntFromUser() -> Int {
-        if let userChoice = readLine() {
-            if let i = Int(userChoice) {
-                return i
+        if let userChoice = readLine() { // unwrapping securely the optional readLine
+            if let intFromUser = Int(userChoice) { // unwrapping securely the optional intFromUser
+                return intFromUser
             } else {
                 print("Erreur de saisie")
                 return 0
             }
-        } else {   //Function does not display the error and crash the program
+        } else {
             print("Erreur de saisie")
             return 0
         }
@@ -67,27 +65,23 @@ class GameManager {
             
         }
         print()
+        print("Equipe \(teams[0].teamName):")
         createPlayers(teamIndex: 0)
         print()
-        print("\n   Félicitation l'équipe: \(teams[0].teamName) est crée.\n")
-        print("Les personnages sont: \(teams[0].players[0].name)")
-        print()
-        //print(" \(players[0].name): \(players[0].warriorType) arme: \(players[0].weapon) niveau de vie: \(players[0].life) \n \(players[1].name): \(players[1].warriorType) arme: \(players[1].weapon) niveau de vie: \(players[1].life) \n \(players[2].name): \(players[2].warriorType) arme: \(players[2].weapon) niveau de vie: \(players[2].life)")
-        
+        print("Equipe \(teams[1].teamName):")
         createPlayers(teamIndex: 1)
         print()
-        print("\n   Félicitation l'équipe: \(teams[1].teamName) est crée.\n")
-        print("Les personnages sont:\(teams[1].players[1].name)")
+        descriptionOfTeams()
         print()
-        // print(" \(players[3].name): \(players[3].warriorType) arme: \(players[3].weapon) niveau de vie: \(players[3].life) \n \(players[4].name):  \(players[4].warriorType) arme: \(players[4].weapon) niveau de vie: \(players[4].life) \n \(players[5].name):  \(players[5].warriorType) arme: \(players[5].weapon) niveau de vie: \(players[5].life)")
-        
+        // ajouter function fight creer boucle pour les combats
+        // ajout function choix utilisateur combats ou soins
+        // mettre les fonctions dans la classe correspondante
     }
     
     
-    func createPlayers(teamIndex: Int) {
-        //ajouter ligne virtuel teamIndex=0
+    func createPlayers(teamIndex: Int)  { //add a virtual line teamIndex = 0
         var choosenName = [String]()
-        var arrayOfCharacter = [Character]() //create array of character var arrayOfCharacters = [Character]()
+        var arrayOfCharacter = [Character]() //create array of character
         for i in 1...3 {
             var input: String
             var choiceUserOne = Int()
@@ -123,12 +117,29 @@ class GameManager {
             }
             let tempPlayers = Character(name: input, warriorType: warriorOne)
             arrayOfCharacter.append(tempPlayers) //add tempPlayers in arrayOfCharacters
-            //teams[teamIndex].players.append(tempPlayers) //c'est une deuxième manière de faire sans passer par la ligne 124
-            // soit on garde ligne 119 + 125 soit on utilise juste la ligne 120
+            //teams[teamIndex].players.append(tempPlayers) - it's a second way to go without going through line 122
+            // either we keep line 122 + 127 or we just use line 123
             
         }
         teams[teamIndex].players = arrayOfCharacter
         //assign arrayOfCharacters to the team index teamIndex
         
+    }
+    
+    func descriptionOfTeams() {
+        for i in 0..<teams.count {
+            print("L'équipe \(teams[i].teamName) est composé de:")
+            print()
+            for b in 0..<teams[i].players.count {
+                print("Personnage\(b+1): \(teams[i].players[b].name) \nType de personnage: \(teams[i].players[b].warriorType)")
+                // condition if warriorType different du magus alors afficher nameOfWeapon
+                if teams[i].players[b].warriorType != Warrior.Magus {
+                    print("Arme: \(teams[i].players[b].weapon!.nameOfWeapon!)") //attention au pts d'exclamation
+                } else { print("Arme: Le Mage n'a pas d'arme et ne prodigue que des soins")
+                }
+                print("Pts de vie: \(teams[i].players[b].life)")
+                print()
+            }
+        }
     }
 }

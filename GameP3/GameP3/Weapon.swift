@@ -8,6 +8,7 @@
 
 class Weapon {
     var damage: Int
+    var nameOfWeapon: String?
     
     init(damage: Int) {
         self.damage = damage

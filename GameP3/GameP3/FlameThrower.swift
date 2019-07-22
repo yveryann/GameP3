@@ -9,6 +9,7 @@
 class FlameThrower: Weapon {
     init() {
         super.init(damage: 5)
+        self.nameOfWeapon = "FlameThrower"
     }
     
 }
