@@ -16,6 +16,14 @@ class Team {
         self.players = players
     }
     
+    func resumeOfFight(teamCible1: Team, teamCible2: Team, characterCible1: Character, characterCible2: Character ) {
+        print("Vainqueur du combat: \(teamCible1.teamName)")
+        print("Combattant:\(characterCible1.name),Points de vie:\(characterCible1.life)")
+        print()
+        print("Perdant du combat:\(teamCible2.teamName)")
+        print("Combattant:\(characterCible2.name), Points de vie:\(characterCible2.life)")
+    }
+    
+    
+    
 }
-
-

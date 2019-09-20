@@ -9,7 +9,7 @@
 class Chopped: Weapon {
     init() {
         super.init(damage: 30)
-        self.nameOfWeapon = "Chopped"
+        self.nameOfWeapon = "Hache"
     }
     
 }
