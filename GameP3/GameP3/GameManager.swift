@@ -25,25 +25,26 @@ class GameManager {
         Un coffre mystère vous permettra de modifier l'arme de votre combattant.
         L'équipe ayant encore un combattant en vie sera déclaré vainqueur.
         Alors n'attendons plus, au combat soldat !!
+
+
 """)
-        print()
-        print()
         createTeamName()
     }
     
     func createTeamName() {
         var choosenNames = [String]()
-        for i in 1...2 {
+        repeat  {
             var input : String
             repeat {
-                print("Entrer un nom unique pour l'équipe \(i):")
+                print("Entrer un nom unique pour l'équipe \(teams.count + 1):")
                 input = getStringFromUser()
             } while choosenNames.contains(input)
             choosenNames.append(input)
             let team = Team(teamName: input, players: [Character]())
             teams.append(team)
             
-        }
+        } while teams.count < 2
+        
         print()
         print("Equipe \(teams[0].teamName):")
         createPlayers(teamIndex: 0)
@@ -139,7 +140,7 @@ class GameManager {
         } while firstActionChosen != 1 && firstActionChosen != 2 && firstActionChosen != 3
         
        //rajouter condition choix attaque ou soin
-            if teams[0].players[firstActionChosen].warriorType is Warrior != Warrior.Magus {
+            if teams[0].players[firstActionChosen].warriorType != .Magus  {
             repeat {
             print("Equipe:\(teams[0].teamName)")
             print("Choisissez votre adversaire:")
@@ -152,7 +153,7 @@ class GameManager {
             teams[0].players[firstActionChosen].attack(characterCible: teams[1].players[opponent])
     
         // sinon (si utilisateur a choisi mage) alors
-            } else if teams[0].players[firstActionChosen].warriorType is Warrior.Magus  {
+            } else {
         repeat {
             print("Equipe:\(teams[0].teamName)")
             print("Choisissez le combattant à soigner:")
@@ -163,64 +164,7 @@ class GameManager {
         } while playerToHeal != 1 && playerToHeal != 2 && playerToHeal != 3
         // appeler instruction soin
         teams[0].players[firstActionChosen].care(characterCible: teams[0].players[playerToHeal])
-        
-        
-    }
-        /*
- 
- 
- 
-        switch firstActionChosen {
-        case 1:
-            if actionFirstUser != Warrior.Magus {
-                teams[0].players[0].attack(characterCible: opponent)
-            } else {
-                teams[0].players[0].care(characterCible: fighterToHeal )
-            }
-        case 2:
-            if actionFirstUser != Warrior.Magus {
-                teams[0].players[1].attack(characterCible: opponent)
-            } else {
-                teams[0].players[1].care(characterCible: fighterToHeal)
-            }
-        case 3:
-            if actionFirstUser != Warrior.Magus {
-                teams[0].players[2].attack(characterCible: opponent)
-            } else {
-                teams[0].players[2].care(characterCible: fighterToHeal)
-            }
-        default:
-            break
         }
- 
- 
- 
- 
- 
-        print()
-        switch secondActionChosen {
-        case 1:
-            opponent = teams[1].players[0]
-        case 2:
-            opponent = teams[1].players[1]
-        case 3:
-            opponent = teams[1].players[2]
-        default:
-            break
-        }
-        
-        print()
-        switch thirdActionChosen {
-        case 1:
-            fighterToHeal = teams[1].players[0]
-        case 2:
-            fighterToHeal = teams[1].players[1]
-        case 3:
-            fighterToHeal = teams[1].players[2]
-        default:
-            break
-        }
-        */
     }
     
 
@@ -266,5 +210,4 @@ class GameManager {
  Func treat in class character
  Func summary in class gamemanager
  */
-}
 }

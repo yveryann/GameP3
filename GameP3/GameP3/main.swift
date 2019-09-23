@@ -16,7 +16,7 @@ func getStringFromUser() -> String {
         return choice
     } else { // unwrapping has failed so choice=nil  - Function does not display the error and crash the program
         print("Erreur de saisie !")
-        return ""
+        return getStringFromUser()
     }
 }
 
@@ -26,10 +26,10 @@ func getIntFromUser() -> Int {
             return intFromUser
         } else {
             print("Erreur de saisie")
-            return 0
+            return getIntFromUser()
         }
     } else {
         print("Erreur de saisie")
-        return 0
+        return getIntFromUser()
     }
 }

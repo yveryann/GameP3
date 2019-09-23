@@ -8,8 +8,6 @@
 
 class FlameThrower: Weapon {
     init() {
-        super.init(damage: 5)
-        self.nameOfWeapon = "Lance-Flammes"
+        super.init(damage: 5, weaponName: "Lance-Flammes")
     }
-    
 }

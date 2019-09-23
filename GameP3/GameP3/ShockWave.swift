@@ -7,9 +7,8 @@
 //
 
 class ShockWave: Weapon {
-    init() {
-        super.init(damage: 50)
-        self.nameOfWeapon = "Onde de Choc"
-    }
     
+    init() {
+        super.init(damage: 50, weaponName: "Onde de Choc")
+    }
 }
