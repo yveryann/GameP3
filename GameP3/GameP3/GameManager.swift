@@ -80,25 +80,22 @@ class GameManager {
                 choiceUserOne = getIntFromUser()
             } while choiceUserOne != 1 && choiceUserOne != 2 && choiceUserOne != 3 && choiceUserOne != 4 && choiceUserOne != 5
             
-            var warriorOne: Warrior!
+            var warrior: Character
             switch choiceUserOne {
             case 1:
-                warriorOne = .Fighter
+                warrior = Fighter(name: input)
             case 2:
-                warriorOne = .Colossus
+                warrior = Colossus(name: input)
             case 3:
-                warriorOne = .Magus
+                warrior = Magus(name: input)
             case 4:
-                warriorOne = .Dwarf
+                warrior = Dwarf(name: input)
             case 5:
-                warriorOne = .Wizard
+                warrior = Wizard(name: input)
             default:
                 break
             }
-            let tempPlayers = Character(name: input, warriorType: warriorOne)
-            arrayOfCharacter.append(tempPlayers) //add tempPlayers in arrayOfCharacters
-            //teams[teamIndex].players.append(tempPlayers) - it's a second way to go without going through line 121
-            // either we keep line 117 + 121 or we just use line 118
+            arrayOfCharacter.append(warrior) 
         }
         teams[teamIndex].players = arrayOfCharacter
         //assign arrayOfCharacters to the team index teamIndex
@@ -139,75 +136,31 @@ class GameManager {
             firstActionChosen = getIntFromUser()
         } while firstActionChosen != 1 && firstActionChosen != 2 && firstActionChosen != 3
         
-       //rajouter condition choix attaque ou soin
-            if teams[0].players[firstActionChosen].warriorType != .Magus  {
+        //rajouter condition choix attaque ou soin
+        if teams[0].players[firstActionChosen].warriorType != .Magus  {
             repeat {
-            print("Equipe:\(teams[0].teamName)")
-            print("Choisissez votre adversaire:")
-            print("1. \(teams[1].players[0].name), Type joueur:\(teams[1].players[0].warriorType)")
-            print("2. \(teams[1].players[1].name), Type joueur:\(teams[1].players[1].warriorType)")
-            print("3. \(teams[1].players[2].name), Type joueur:\(teams[1].players[2].warriorType)")
-            opponent = getIntFromUser()
-        } while opponent != 1 && opponent != 2 && opponent != 3
-    // appeler instruction d'attaque
+                print("Equipe:\(teams[0].teamName)")
+                print("Choisissez votre adversaire:")
+                print("1. \(teams[1].players[0].name), Type joueur:\(teams[1].players[0].warriorType)")
+                print("2. \(teams[1].players[1].name), Type joueur:\(teams[1].players[1].warriorType)")
+                print("3. \(teams[1].players[2].name), Type joueur:\(teams[1].players[2].warriorType)")
+                opponent = getIntFromUser()
+            } while opponent != 1 && opponent != 2 && opponent != 3
+            // appeler instruction d'attaque
             teams[0].players[firstActionChosen].attack(characterCible: teams[1].players[opponent])
-    
-        // sinon (si utilisateur a choisi mage) alors
-            } else {
-        repeat {
-            print("Equipe:\(teams[0].teamName)")
-            print("Choisissez le combattant à soigner:")
-            print("1. \(teams[0].players[0]), Type joueur:\(teams[0].players[0].warriorType)")
-            print("2. \(teams[0].players[1]), Type joueur:\(teams[0].players[1].warriorType)")
-            print("3. \(teams[0].players[2]), Type joueur:\(teams[0].players[2].warriorType)")
-            playerToHeal = getIntFromUser()
-        } while playerToHeal != 1 && playerToHeal != 2 && playerToHeal != 3
-        // appeler instruction soin
-        teams[0].players[firstActionChosen].care(characterCible: teams[0].players[playerToHeal])
+            
+            // sinon (si utilisateur a choisi mage) alors
+        } else {
+            repeat {
+                print("Equipe:\(teams[0].teamName)")
+                print("Choisissez le combattant à soigner:")
+                print("1. \(teams[0].players[0]), Type joueur:\(teams[0].players[0].warriorType)")
+                print("2. \(teams[0].players[1]), Type joueur:\(teams[0].players[1].warriorType)")
+                print("3. \(teams[0].players[2]), Type joueur:\(teams[0].players[2].warriorType)")
+                playerToHeal = getIntFromUser()
+            } while playerToHeal != 1 && playerToHeal != 2 && playerToHeal != 3
+            // appeler instruction soin
+            teams[0].players[firstActionChosen].care(characterCible: teams[0].players[playerToHeal])
         }
     }
-    
-
-/*
- Résumé de la suite du jeu:
- Summary of the continuation of the game:
- 
- Interdire les équipes à choisir 3 Mage (ajouter à la fin)
- Prohibit teams from choosing 3 Magus (add at the end)
- 
- Combattant attaquant et déduire l'action en fonction du choix de l'attaquant
- 
- Demander à l'équipe0 quelle action elle souhaite réaliser (attaque ou soin - verifier si Mage dans l'équipe sinon ne pas proposer choix attaque) si choix = attaque ne pas donner la possibilité de choisir Mage.
- Ask the team what action they want to take (attack or care - check if Mage in the team otherwise do not propose choice attack) if choice = attack do not give the opportunity to choose Mage.
- 
- Si attaque:
- If attack:
- choix du warriorType de l'équipe attaquante
- choice of the attacking team's warriorType
- choix du warriortype de l'équipe attaquée
- choice of the warriortype of the attacked team
- recuperer le nbre de pts de l'arme de l'attaquant et l'enlever ses pts aux pts de vie du warriorType de l'équipe attaquée
- recover the number of pts from the attacker's army and remove his pts from the attacked team's warriorType
- 
- si soin:
- if care:
- choix du warriorType à soigner
- choice of warriorType to treat
- ajouter pts de soins aux warriorType à soigner sans pouvoir dépasser les pts de vie attribué en début de partie
- add pts of care to warriorType to cure without being able to exceed the points of life allotted at the beginning of the game
- Creer une boucle pour que les tours s'enchainent en alternant les équipes
- Create a loop so that the turns are linked by alternating teams
- Faire un petit résumé avec pts de vie restant après chaque combat et le nom du combattant
- Make a small summary with pts of life remaining after each fight and the name of the fighter
- Le vainqueur de la partie est l'équipe qui posséde encore un joueur avec des pts de vie
- The winner of the game is the team that still has a player with life points
- */
-
-// write the functions in the classes concerned
-
-/*
- Func attack in class character
- Func treat in class character
- Func summary in class gamemanager
- */
 }

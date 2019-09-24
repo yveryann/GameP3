@@ -25,11 +25,11 @@ func getIntFromUser() -> Int {
         if let intFromUser = Int(userChoice) { // unwrapping securely the optional intFromUser
             return intFromUser
         } else {
-            print("Erreur de saisie")
+            print("Erreur de saisie, ce chiffre n'est pas dans la sélection")
             return getIntFromUser()
         }
     } else {
-        print("Erreur de saisie")
+        print("Erreur de saisie, Entrer un chiffre")
         return getIntFromUser()
     }
 }

@@ -7,13 +7,14 @@
 //
 
 class Magus: Character {
-    var careDamage = 30
- 
- init() {
-     super.init(name: String, lifeStart: 70, life: 70)
- }
-
-// only the Magus can provide care
-func care(characterCible: Character) {
-    characterCible.receiveCare(life: self.life)
+    var careLifePoints = 30
+    
+    init(name: String) {
+        super.init(name: name, lifeStart: 70, life: 70)
+    }
+    
+    // only the Magus can provide care
+    func care(characterCible: Character) {
+        characterCible.life += self.careLifePoints
+    }
 }

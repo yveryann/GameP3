@@ -7,10 +7,9 @@
 //
 
 class Dwarf: Character {
-    var weapon = Chopped()
-     
-     init() {
-         super.init(name: String, lifeStart: 80, life: 80)
-     }
     
+    init(name: String) {
+        super.init(name: name, lifeStart: 80, life: 80)
+        self.weapon = Chopped()
+    }
 }

@@ -23,7 +23,4 @@ class Team {
         print("Perdant du combat:\(teamCible2.teamName)")
         print("Combattant:\(characterCible2.name), Points de vie:\(characterCible2.life)")
     }
-    
-    
-    
 }

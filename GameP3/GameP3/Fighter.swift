@@ -7,10 +7,9 @@
 //
 
 class Fighter: Character {
-    var weapon = Sword()
     
-    init() {
-        super.init(name: String, lifeStart: 100, life: 100)
+    init(name: String) {
+        super.init(name: name, lifeStart: 100, life: 100)
+        self.weapon = Sword()
     }
-    
 }

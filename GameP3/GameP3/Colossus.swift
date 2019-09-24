@@ -7,10 +7,9 @@
 //
 
 class Colossus: Character {
-    var weapon = FlameThrower()
-     
-     init() {
-         super.init(name: String, lifeStart: 400, life: 400)
-     }
     
+    init(name: String) {
+        super.init(name: name, lifeStart: 400, life: 400)
+        self.weapon = FlameThrower()
+    }
 }

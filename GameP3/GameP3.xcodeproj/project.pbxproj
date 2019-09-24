@@ -16,7 +16,6 @@
 		88E5C98B2295358F0071CB7A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C98A2295358F0071CB7A /* main.swift */; };
 		88E5C992229536460071CB7A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C991229536460071CB7A /* Team.swift */; };
 		88E5C994229536660071CB7A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C993229536660071CB7A /* Character.swift */; };
-		88E5C996229536850071CB7A /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C995229536850071CB7A /* Warrior.swift */; };
 		88E5C99A229536B80071CB7A /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C999229536B80071CB7A /* Sword.swift */; };
 		88E5C99C229536D20071CB7A /* ShockWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C99B229536D20071CB7A /* ShockWave.swift */; };
 		88E5C99E229536EC0071CB7A /* FlameThrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C99D229536EC0071CB7A /* FlameThrower.swift */; };
@@ -47,7 +46,6 @@
 		88E5C98A2295358F0071CB7A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88E5C991229536460071CB7A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		88E5C993229536660071CB7A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		88E5C995229536850071CB7A /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		88E5C999229536B80071CB7A /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
 		88E5C99B229536D20071CB7A /* ShockWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShockWave.swift; sourceTree = "<group>"; };
 		88E5C99D229536EC0071CB7A /* FlameThrower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameThrower.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				888A86B02336955A00513027 /* Wizard.swift */,
 				888A86AE2336953D00513027 /* Dwarf.swift */,
 				888A86B22336957900513027 /* Magus.swift */,
-				88E5C995229536850071CB7A /* Warrior.swift */,
 				888A86B4233902F300513027 /* Weapon.swift */,
 				88E5C999229536B80071CB7A /* Sword.swift */,
 				88E5C99B229536D20071CB7A /* ShockWave.swift */,
@@ -170,7 +167,6 @@
 				88E5C994229536660071CB7A /* Character.swift in Sources */,
 				88E5C992229536460071CB7A /* Team.swift in Sources */,
 				888A86AF2336953D00513027 /* Dwarf.swift in Sources */,
-				88E5C996229536850071CB7A /* Warrior.swift in Sources */,
 				88E5C99E229536EC0071CB7A /* FlameThrower.swift in Sources */,
 				88E5C98B2295358F0071CB7A /* main.swift in Sources */,
 				88E5C99A229536B80071CB7A /* Sword.swift in Sources */,

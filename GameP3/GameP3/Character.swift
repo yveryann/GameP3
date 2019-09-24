@@ -9,37 +9,26 @@
 class Character {
     var name: String
     var lifeStart: Int
-    var life: Int
-
+    var life: Int{
+        didSet {
+            if life < 0 {
+                life = 0
+            } else if life > lifeStart {
+                life = lifeStart
+            }
+        }
+    }
+    var weapon: Weapon = Sword()
+    
     init(name: String, lifeStart: Int, life: Int) {
         self.name = name
         self.lifeStart = lifeStart
         self.life = life
     }
-    }
     
-    // all characters can receive damage
-    func receiveDamage(weaponDamage: Int) {
-        self.life -= weaponDamage
-        if self.life < 0 {
-            self.life = 0
-        }
-    }
-    
-    // all characters can receive care
-    func receiveCare(life: Int) {
-        self.life += Magus.careDamage
-        if self.life > self.lifeStart {
-            self.life = self.lifeStart
-        }
-    }
-    // all characters, execpt the magus, can attack
     func attack(characterCible: Character) {
-        characterCible.receiveDamage(damage: self.weapon!.damage)
+        characterCible.life -= self.weapon.damage
     }
-    
-    // only the Magus can provide care
-    // remove from this class
-    
+}
 
 
