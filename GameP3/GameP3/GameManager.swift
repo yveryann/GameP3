@@ -60,13 +60,14 @@ class GameManager {
     
     func createPlayers(teamIndex: Int)  { //add a virtual line teamIndex = 0
         var arrayOfCharacter = [Character]() //create array of character
+        var warriorName = Character(name: String(), lifeStart: Int(), life: Int())
         for i in 1...3 {
             var input: String
             var choiceUserOne = Int()
             repeat {
                 print("Entrer un nom unique de votre personnage\(i):")
                 input = getStringFromUser()
-            } while Character.addName(input)
+            } while warriorName.name.addName(input)
             
             repeat {
                 print("Choix personnage \(i) :")
