@@ -19,9 +19,10 @@ class Character {
         }
     }
     var weapon: Weapon = Sword()
+    static var names = [String]()
     
     init(name: String, lifeStart: Int, life: Int) {
-        self.name = name
+        self.name = name 
         self.lifeStart = lifeStart
         self.life = life
     }
@@ -29,6 +30,16 @@ class Character {
     func attack(characterCible: Character) {
         characterCible.life -= self.weapon.damage
     }
+    
+    func addName() {
+        if Character.names.contains(self.name.lowercased()){
+                print("Erreur, ce nom est déjà utilisé !")
+            }else{
+                Character.names.append(self.name.lowercased())
+            }
+        }
+    }
 }
+
 
 

@@ -5,6 +5,7 @@
 //  Created by Yann Yver on 22/05/2019.
 //  Copyright © 2019 Yann Yver. All rights reserved.
 //
+
 class GameManager {
     
     var teams = [Team]()
@@ -54,13 +55,10 @@ class GameManager {
         print()
         descriptionOfTeams()
         print()
-        
-        chooseFighter()//link to the next instrcution to execute
+        chooseFighter()
     }
     
-    
     func createPlayers(teamIndex: Int)  { //add a virtual line teamIndex = 0
-        var choosenName = [String]()
         var arrayOfCharacter = [Character]() //create array of character
         for i in 1...3 {
             var input: String
@@ -68,8 +66,8 @@ class GameManager {
             repeat {
                 print("Entrer un nom unique de votre personnage\(i):")
                 input = getStringFromUser()
-            } while choosenName.contains(input)
-            choosenName.append(input)
+            } while Character.addName(input)
+            
             repeat {
                 print("Choix personnage \(i) :")
                 print("1. Fighter")
@@ -107,12 +105,8 @@ class GameManager {
             print("L'équipe \(teams[i].teamName) est composé de:")
             print()
             for b in 0..<teams[i].players.count {
-                print("Personnage\(b+1): \(teams[i].players[b].name) \nType de personnage: \(teams[i].players[b].warriorType)")
-                // if condition warriorType different from magus then display nameOfWeapon
-                if teams[i].players[b].warriorType != Warrior.Magus {
-                    print("Arme: \(teams[i].players[b].weapon!.nameOfWeapon!)") //unwrapping force because in the condition I specified that the mage had no weapon and therefore return a special sentence
-                } else { print("Arme: Le Mage n'a pas d'arme et ne prodigue que des soins")
-                }
+                print("Personnage\(b+1): \(teams[i].players[b].name)")
+                print("Arme: \(teams[i].players[b].weapon)")
                 print("Pts de vie: \(teams[i].players[b].life)")
                 print()
             }
@@ -130,20 +124,20 @@ class GameManager {
         repeat {
             print("Equipe:\(teams[0].teamName)")
             print("Choisissez votre combattant:")
-            print("1. \(teams[0].players[0].name), Type joueur:\(teams[0].players[0].warriorType)")
-            print("2. \(teams[0].players[1].name), Type joueur:\(teams[0].players[1].warriorType)")
-            print("3. \(teams[0].players[2].name), Type joueur:\(teams[0].players[2].warriorType)")
+            print("1. \(teams[0].players[0].name)")
+            print("2. \(teams[0].players[1].name)")
+            print("3. \(teams[0].players[2].name)")
             firstActionChosen = getIntFromUser()
         } while firstActionChosen != 1 && firstActionChosen != 2 && firstActionChosen != 3
         
         //rajouter condition choix attaque ou soin
-        if teams[0].players[firstActionChosen].warriorType != .Magus  {
+        if teams[0].players[firstActionChosen] !=   {
             repeat {
                 print("Equipe:\(teams[0].teamName)")
                 print("Choisissez votre adversaire:")
-                print("1. \(teams[1].players[0].name), Type joueur:\(teams[1].players[0].warriorType)")
-                print("2. \(teams[1].players[1].name), Type joueur:\(teams[1].players[1].warriorType)")
-                print("3. \(teams[1].players[2].name), Type joueur:\(teams[1].players[2].warriorType)")
+                print("1. \(teams[1].players[0].name)")
+                print("2. \(teams[1].players[1].name)")
+                print("3. \(teams[1].players[2].name)")
                 opponent = getIntFromUser()
             } while opponent != 1 && opponent != 2 && opponent != 3
             // appeler instruction d'attaque
@@ -154,9 +148,9 @@ class GameManager {
             repeat {
                 print("Equipe:\(teams[0].teamName)")
                 print("Choisissez le combattant à soigner:")
-                print("1. \(teams[0].players[0]), Type joueur:\(teams[0].players[0].warriorType)")
-                print("2. \(teams[0].players[1]), Type joueur:\(teams[0].players[1].warriorType)")
-                print("3. \(teams[0].players[2]), Type joueur:\(teams[0].players[2].warriorType)")
+                print("1. \(teams[0].players[0])")
+                print("2. \(teams[0].players[1])")
+                print("3. \(teams[0].players[2])")
                 playerToHeal = getIntFromUser()
             } while playerToHeal != 1 && playerToHeal != 2 && playerToHeal != 3
             // appeler instruction soin
