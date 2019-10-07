@@ -7,8 +7,7 @@
 //
 
 class Magus: Character {
-    var careLifePoints = 30
-    
+    var careLifePoints = 20
     init(name: String) {
         super.init(name: name, lifeStart: 70, life: 70)
     }

@@ -8,10 +8,10 @@
 
 class Weapon {
     var damage: Int
-    var weaponName: String
+    var name: String
     
-    init(damage: Int, weaponName: String) {
+    init(damage: Int, name: String) {
         self.damage = damage
-        self.weaponName = weaponName
+        self.name = name
     }
 }

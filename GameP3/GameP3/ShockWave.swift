@@ -8,6 +8,6 @@
 
 class ShockWave: Weapon {
     init() {
-        super.init(damage: 50, weaponName: "Onde de Choc")
+        super.init(damage: 50, name: "Onde de Choc")
     }
 }

@@ -30,16 +30,23 @@ class Character {
     func attack(characterCible: Character) {
         characterCible.life -= self.weapon.damage
     }
+        
     
-    func addName() {
-        if Character.names.contains(self.name.lowercased()){
-                print("Erreur, ce nom est déjà utilisé !")
-            }else{
-                Character.names.append(self.name.lowercased())
-            }
+    static func isAlreadyExistingName(_ name: String) -> Bool {
+        if Character.names.contains(name.lowercased()){
+            print("Erreur, ce nom est déjà utilisé !")
+            return true
+        } else {
+        Character.names.append(name.lowercased())
+        return false
+        }
+    }
+    
+    func isDead() -> Bool {
+        if life <= 0 {
+            return true
+        }else {
+            return false
         }
     }
 }
-
-
-

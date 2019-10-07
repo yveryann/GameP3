@@ -7,7 +7,6 @@
 //
 
 class Colossus: Character {
-    
     init(name: String) {
         super.init(name: name, lifeStart: 400, life: 400)
         self.weapon = FlameThrower()

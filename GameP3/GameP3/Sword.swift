@@ -8,6 +8,6 @@
 
 class Sword: Weapon {
     init() {
-        super.init(damage: 10, weaponName: "Epée")
+        super.init(damage: 10, name: "Epée")
     }
 }

@@ -7,7 +7,6 @@
 //
 
 class Wizard: Character {
-
     init(name: String) {
         super.init(name: name, lifeStart: 200, life: 200)
         self.weapon = ShockWave()
