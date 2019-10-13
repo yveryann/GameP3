@@ -14,11 +14,18 @@ class GameManager {
     func rules() {
         print("""
         
-        Bienvenue sur GameP3 ⚔️
+        ⚔️⚔️⚔️ Bienvenue sur GameP3 ⚔️⚔️⚔️
 """)
         print()
         print("""
         GameP3 est un jeu de combat entre 2 équipes de 3 personnages.
+        
+        Présentation des personnages:
+        1. Fighter:     Nombre de points de vie ❤️: 100     Arme: Epée             Dégats provoqués par l'arme 🗡: 10
+        2. Colossus:    Nombre de points de vie ❤️: 400     Arme: Lance-Flammes    Dégats provoqués par l'arme 🗡: 5
+        3. Wizard:      Nombre de points de vie ❤️: 200     Arme: Onde de Choc     Dégats provoqués par l'arme 🗡: 50
+        4. Dwarf:       Nombre de points de vie ❤️: 80     Arme: Hache             Dégats provoqués par l'arme 🗡: 30
+        5. Magus:       Nombre de points de vie ❤️: 70     Arme: Baton de Mage     Gains de points de vie lors du soins 💊: 20
         
         Vous aurez le choix à chaque tour pour attaquer (avec un combattant)
         ou de vous soigner (seul le Mage détient ce pouvoir).
@@ -37,7 +44,7 @@ class GameManager {
     func createTeams() {
         var choosenNames = [String]()
         repeat  {
-            var input : String
+            var input: String
             repeat {
                 print("Entrer un nom unique pour l'équipe \(teams.count + 1):")
                 input = getStringFromUser()
@@ -54,12 +61,47 @@ class GameManager {
         print("==============================================================")
         for team in teams {
             team.description()
+            
             print("==============================================================")
         }
     }
     
     func fight() {
-        let characterAttacking = teams[0].selectCharacter()
-        let characterDefending = teams[1].selectCharacter()
+        var input: Int
+        
+        print("Equipe \(teams[0]) combat ou soins, faites votre choix:)")
+        teams[0].selectCharacter()
+        
+        while !teams[0].members[input].isDead() && !teams[1].members[input].isDead() {
+            
+            if teams[0].members[input] is Magus {
+                teams[0].selectCharacter()
+                teams[0].Magus.care(input)// I don't know how to acces the care function
+                
+            } else {
+                teams[1].selectCharacter()
+                teams[0].members[input].attack(characterCible: teams[1].members[input])
+            }
+            for team in teams {
+                team.description()
+            }
+        } return winner()
+        
+        print("Equipe \(teams[1]) combat ou soins, faites votre choix:")
+        teams[1].selectCharacter()
+        
+        while !teams[1].members[input].isDead() && !teams[0].members[input].isDead() {
+            
+            if teams[0].members[input] is Magus {
+                teams[0].selectCharacter()
+                teams[0].Magus.care(input)// I don't know how to acces the care function
+            } else {
+                teams[0].selectCharacter()
+                teams[1].members[input].attack(characterCible: teams[0].members[input])
+            }
+            for team in teams {
+                team.description()
+            }
+        } return winner()
     }
 }

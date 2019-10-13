@@ -30,23 +30,29 @@ class Character {
     func attack(characterCible: Character) {
         characterCible.life -= self.weapon.damage
     }
-        
     
     static func isAlreadyExistingName(_ name: String) -> Bool {
         if Character.names.contains(name.lowercased()){
             print("Erreur, ce nom est déjà utilisé !")
             return true
-        } else {
+        }
         Character.names.append(name.lowercased())
         return false
-        }
     }
     
     func isDead() -> Bool {
         if life <= 0 {
             return true
-        }else {
-            return false
         }
-    }
+        return false
+        }
+    
+    func DisplayDescription() {
+        let team = Team(name: String(), members: [Character]())
+        print("\(team.name) voici les personnages de votre équipe:")
+        for (index,_) in name.enumerated() {
+                  let dead = isDead() ? "(Mort)" : "" // ternary condition
+                  print("\(index + 1) 🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) - \(dead)")
+              }
+          }
 }

@@ -10,6 +10,7 @@ class Magus: Character {
     var careLifePoints = 20
     init(name: String) {
         super.init(name: name, lifeStart: 70, life: 70)
+        self.weapon = MaguStick()
     }
     
     // only the Magus can provide care

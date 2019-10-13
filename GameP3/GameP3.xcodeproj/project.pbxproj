@@ -13,6 +13,7 @@
 		888A86B12336955A00513027 /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A86B02336955A00513027 /* Wizard.swift */; };
 		888A86B32336957900513027 /* Magus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A86B22336957900513027 /* Magus.swift */; };
 		888A86B5233902F300513027 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A86B4233902F300513027 /* Weapon.swift */; };
+		888F8863234B4EC1002DDC2F /* MagusStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F8862234B4EC1002DDC2F /* MagusStick.swift */; };
 		88E5C98B2295358F0071CB7A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C98A2295358F0071CB7A /* main.swift */; };
 		88E5C992229536460071CB7A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C991229536460071CB7A /* Team.swift */; };
 		88E5C994229536660071CB7A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E5C993229536660071CB7A /* Character.swift */; };
@@ -42,6 +43,7 @@
 		888A86B02336955A00513027 /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
 		888A86B22336957900513027 /* Magus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magus.swift; sourceTree = "<group>"; };
 		888A86B4233902F300513027 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		888F8862234B4EC1002DDC2F /* MagusStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagusStick.swift; sourceTree = "<group>"; };
 		88E5C9872295358F0071CB7A /* GameP3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameP3; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E5C98A2295358F0071CB7A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88E5C991229536460071CB7A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				888A86AE2336953D00513027 /* Dwarf.swift */,
 				888A86B22336957900513027 /* Magus.swift */,
 				888A86B4233902F300513027 /* Weapon.swift */,
+				888F8862234B4EC1002DDC2F /* MagusStick.swift */,
 				88E5C999229536B80071CB7A /* Sword.swift */,
 				88E5C99B229536D20071CB7A /* ShockWave.swift */,
 				88E5C99D229536EC0071CB7A /* FlameThrower.swift */,
@@ -170,6 +173,7 @@
 				888A86AF2336953D00513027 /* Dwarf.swift in Sources */,
 				88E5C99E229536EC0071CB7A /* FlameThrower.swift in Sources */,
 				88E5C98B2295358F0071CB7A /* main.swift in Sources */,
+				888F8863234B4EC1002DDC2F /* MagusStick.swift in Sources */,
 				88E5C99A229536B80071CB7A /* Sword.swift in Sources */,
 				888A86B12336955A00513027 /* Wizard.swift in Sources */,
 				88E5C9A222953DE20071CB7A /* GameManager.swift in Sources */,

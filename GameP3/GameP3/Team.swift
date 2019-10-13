@@ -72,7 +72,7 @@ class Team {
     }
     
     func selectCharacter() -> Character {
-        print("Selectionner un personnage de la liste suivante: ")
+        print("Selectionner un personnage vivant dans la liste suivante: ")
         description()
         let choice = getIntFromUser() - 1
         if choice >= 0 && choice <= members.count {
@@ -84,5 +84,9 @@ class Team {
         }
         print("Erreur, selectionner un chiffre de 1 à \(members.count) vivant")
         return selectCharacter()
+    }
+    
+    func winner() {
+        
     }
 }
