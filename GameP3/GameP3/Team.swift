@@ -86,7 +86,7 @@ class Team {
         return selectCharacter()
     }
     
-    func winner() {
+    func displayWinner() {
         
     }
 }

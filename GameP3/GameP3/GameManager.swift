@@ -76,7 +76,7 @@ class GameManager {
             
             if teams[0].members[input] is Magus {
                 teams[0].selectCharacter()
-                teams[0].Magus.care(input)// I don't know how to acces the care function
+                teams[0].Magus.care(teams[0].members[input])// I don't know how to acces the care function
                 
             } else {
                 teams[1].selectCharacter()
@@ -90,11 +90,11 @@ class GameManager {
         print("Equipe \(teams[1]) combat ou soins, faites votre choix:")
         teams[1].selectCharacter()
         
-        while !teams[1].members[input].isDead() && !teams[0].members[input].isDead() {
+        while !teams[1].members[input].isDead() && !teams[1].members[input].isDead() {
             
-            if teams[0].members[input] is Magus {
-                teams[0].selectCharacter()
-                teams[0].Magus.care(input)// I don't know how to acces the care function
+            if teams[1].members[input] is Magus {
+                teams[1].selectCharacter()
+                teams[1].Magus.care(teams[1].members[input])// I don't know how to acces the care function
             } else {
                 teams[0].selectCharacter()
                 teams[1].members[input].attack(characterCible: teams[0].members[input])
