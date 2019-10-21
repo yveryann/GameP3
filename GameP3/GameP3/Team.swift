@@ -23,18 +23,13 @@ class Team {
             var input: String
             var choiceUserOne = Int()
             repeat {
-                print("Entrer un nom unique de votre personnage\(index):")
-                input = getStringFromUser()
-            } while Character.isAlreadyExistingName(input)
-            
-            repeat {
                 print("""
                     Choix personnage \(index) :")
-                    1. Fighter:     ❤️ 100  🗡 10
-                    2. Colossus:    ❤️ 400  🗡 5
-                    3. Wizard:      ❤️ 200  🗡 50
-                    4. Dwarf:       ❤️ 80   🗡 30
-                    5. Magus:       ❤️ 70   💊 20
+                    1. Fighter:     ❤️ 30  🗡 10
+                    2. Colossus:    ❤️ 75  🗡 5
+                    3. Wizard:      ❤️ 50  🗡 50
+                    4. Dwarf:       ❤️ 20   🗡 30
+                    5. Magus:       ❤️ 35   💊 20
                     """)
                 choiceUserOne = getIntFromUser()
             } while choiceUserOne != 1 && choiceUserOne != 2 && choiceUserOne != 3 && choiceUserOne != 4 && choiceUserOne != 5
@@ -60,14 +55,17 @@ class Team {
                 print("Erreur je n'ai pas compris votre choix")
                 break
             }
+            repeat {
+                print("Entrer un nom unique de votre personnage\(index):")
+                input = getStringFromUser()
+            } while Character.isAlreadyExistingName(input)
         }
     }
     
     func description() {
         print("\(self.name) voici les personnages de votre équipe: ")
         for (index,character) in members.enumerated() {
-            let dead = character.isDead() ? "(Mort)" : "" // ternary condition
-            print("\(index + 1) 🥋:\(character.name) - ❤️\(character.life) - 🗡\(character.weapon.damage) - \(dead)")
+            print("\(index + 1) - \(character.describe())")
         }
     }
     
@@ -86,7 +84,13 @@ class Team {
         return selectCharacter()
     }
     
-    func displayWinner() {
-        
+    func isTeamAlive() -> Bool {
+        for character in members {
+            if !character.isDead() {
+                return true
+            }
+        }
+        return false
     }
+    
 }

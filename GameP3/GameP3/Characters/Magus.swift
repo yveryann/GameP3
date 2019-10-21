@@ -14,7 +14,12 @@ class Magus: Character {
     }
     
     // only the Magus can provide care
-    func care(characterCible: Character) {
-        characterCible.life += self.careLifePoints
+    func care(_ target: Character) {
+        target.life += careLifePoints
     }
+    
+    override func describe() {
+    let dead = isDead() ? "- Mort" : "" // ternary condition
+    print("🥋:\(self.name) - ❤️\(self.life) - 💊\(self.careLifePoints) \(dead)")
+          }
 }

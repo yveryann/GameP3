@@ -67,41 +67,24 @@ class GameManager {
     }
     
     func fight() {
-        var input: Int
-        
-        print("Equipe \(teams[0]) combat ou soins, faites votre choix:)")
-        teams[0].selectCharacter()
-        
-        while !teams[0].members[input].isDead() && !teams[1].members[input].isDead() {
-            
-            if teams[0].members[input] is Magus {
-                teams[0].selectCharacter()
-                teams[0].Magus.care(teams[0].members[input])// I don't know how to acces the care function
-                
+        var attackingTeam = teams[0]
+        var defendingTeam = teams[1]
+        repeat {
+            let attacker = attackingTeam.selectCharacter()
+            if let magus = attacker as? Magus {
+                let target = attackingTeam.selectCharacter()
+                magus.care(target)
+                print("\(magus.name) a soigné \(target.name) qui a maintenant \(target.life)")
             } else {
-                teams[1].selectCharacter()
-                teams[0].members[input].attack(characterCible: teams[1].members[input])
+                let chest = BonusChest()
+                chest.useBonusChest(character: attacker)
+                let target = defendingTeam.selectCharacter()
+                attacker.attack(target)
+                print("\(attacker.name) a attaqué \(target.name) qui a maintenant \(target.life)")
             }
-            for team in teams {
-                team.description()
-            }
-        } return winner()
-        
-        print("Equipe \(teams[1]) combat ou soins, faites votre choix:")
-        teams[1].selectCharacter()
-        
-        while !teams[1].members[input].isDead() && !teams[1].members[input].isDead() {
+            attackingTeam = attackingTeam === teams[0] ? teams[1] : teams[0]
+            defendingTeam = attackingTeam === teams[0] ? teams[1] : teams [0]
             
-            if teams[1].members[input] is Magus {
-                teams[1].selectCharacter()
-                teams[1].Magus.care(teams[1].members[input])// I don't know how to acces the care function
-            } else {
-                teams[0].selectCharacter()
-                teams[1].members[input].attack(characterCible: teams[0].members[input])
-            }
-            for team in teams {
-                team.description()
-            }
-        } return winner()
+        } while (attackingTeam.isTeamAlive())
     }
 }

@@ -27,8 +27,8 @@ class Character {
         self.life = life
     }
     
-    func attack(characterCible: Character) {
-        characterCible.life -= self.weapon.damage
+    func attack(_ target: Character) {
+        target.life -= self.weapon.damage
     }
     
     static func isAlreadyExistingName(_ name: String) -> Bool {
@@ -47,12 +47,8 @@ class Character {
         return false
         }
     
-    func DisplayDescription() {
-        let team = Team(name: String(), members: [Character]())
-        print("\(team.name) voici les personnages de votre équipe:")
-        for (index,_) in name.enumerated() {
-                  let dead = isDead() ? "(Mort)" : "" // ternary condition
-                  print("\(index + 1) 🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) - \(dead)")
+    func describe() {
+        let dead = isDead() ? "- Mort" : "" // ternary condition
+        print("🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) \(dead)")
               }
-          }
 }
