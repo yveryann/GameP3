@@ -9,7 +9,7 @@
 class GameManager {
     
     var teams = [Team]()
-    
+    var rounds = 0
     
     func rules() {
         print("""
@@ -76,15 +76,51 @@ class GameManager {
                 magus.care(target)
                 print("\(magus.name) a soigné \(target.name) qui a maintenant \(target.life)")
             } else {
-                let chest = BonusChest()
-                chest.useBonusChest(character: attacker)
+                
                 let target = defendingTeam.selectCharacter()
                 attacker.attack(target)
                 print("\(attacker.name) a attaqué \(target.name) qui a maintenant \(target.life)")
             }
+            rounds += 1
             attackingTeam = attackingTeam === teams[0] ? teams[1] : teams[0]
-            defendingTeam = attackingTeam === teams[0] ? teams[1] : teams [0]
+            defendingTeam = attackingTeam === teams[0] ? teams[1] : teams[0]
             
         } while (attackingTeam.isTeamAlive())
+        winner(for: 0)
+        winner(for: 1)
     }
+   
+    func winner(for index: Int) {
+        if teams[index].members[index].isDead() == false  {
+        if teams[0].isTeamAlive() == true && teams[1].isTeamAlive() == false {
+            print("""
+                              ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
+                👏👏 Félicitattions équipe\(teams[0]) vous êtes le vainqueur du combat en \(rounds) combats. 👏👏
+                                                       \(statis(0))
+                                                         ☠️☠️☠️☠️☠️
+                                       
+                                        MERCI D'AVOIR JOUE A CET INCROYABLE COMBAT.
+                """)
+        } else {
+            print("""
+                              ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
+                👏👏 Félicitattions équipe\(teams[1]) vous êtes le vainqueur du combat en \(rounds) combats. 👏👏
+                                                       \(statis(1))
+                                                         ☠️☠️☠️☠️☠️
+                                       
+                                        MERCI D'AVOIR JOUE A CET INCROYABLE COMBAT.
+            """)
+            }
+        }
+    }
+    
+    func statis(_ index:Int) {
+        
+          print("""
+            Equipe \(teams[index]) vous avez effectué \(rounds) combats
+            Vos joueurs en vie sont: \(teams[index].isTeamAlive())
+            
+            """)
+        }
+
 }

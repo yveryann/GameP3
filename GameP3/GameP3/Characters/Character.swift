@@ -8,6 +8,7 @@
 
 class Character {
     var name: String
+    var statsOfFights = 0
     var lifeStart: Int
     var life: Int{
         didSet {
@@ -29,6 +30,7 @@ class Character {
     
     func attack(_ target: Character) {
         target.life -= self.weapon.damage
+        statsOfFights += 1
     }
     
     static func isAlreadyExistingName(_ name: String) -> Bool {

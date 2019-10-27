@@ -34,6 +34,11 @@ class Team {
                 choiceUserOne = getIntFromUser()
             } while choiceUserOne != 1 && choiceUserOne != 2 && choiceUserOne != 3 && choiceUserOne != 4 && choiceUserOne != 5
             
+            repeat {
+                print("Entrer un nom unique de votre personnage\(index):")
+                input = getStringFromUser()
+            } while Character.isAlreadyExistingName(input)
+            
             var warrior: Character
             switch choiceUserOne {
             case 1:
@@ -55,10 +60,6 @@ class Team {
                 print("Erreur je n'ai pas compris votre choix")
                 break
             }
-            repeat {
-                print("Entrer un nom unique de votre personnage\(index):")
-                input = getStringFromUser()
-            } while Character.isAlreadyExistingName(input)
         }
     }
     

@@ -15,7 +15,7 @@ class BonusChest {
         Weapon(damage: Int.random(in: 10...15), name: "Eclair")
     ]
     
-    func useBonusChest(character: Character) -> Weapon {
+    func bonusChest(character: Character) {
         let newWeapon = bonusWeapon.randomElement()
         
             print("""
@@ -34,14 +34,18 @@ class BonusChest {
             
         switch choiceChest {
         case 1:
-            character.weapon = newWeapon!
-            print("\(character.name) vous êtes maintenant équipé de l'arme :\(newWeapon!.name) 🗡: \(newWeapon!.damage)")
-            return newWeapon!
-        case 2:
-            return character.weapon
+            if let newsWeapon = newWeapon {
+            character.weapon = newsWeapon
+            print("\(character.name) vous êtes maintenant équipé de l'arme :\(newsWeapon.name) - dégâts🗡: \(newsWeapon.damage)")
+            }
         default:
             break
+            }
         }
-        return character.weapon
+    
+    func useBonus() {
+        
     }
+
+    
 }
