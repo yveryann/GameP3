@@ -9,7 +9,7 @@
 class Magus: Character {
     var careLifePoints = 20
     init(name: String) {
-        super.init(name: name, lifeStart: 70, life: 70)
+        super.init(name: name, lifeStart: 30, life: 30)
         self.weapon = MaguStick()
     }
     
@@ -18,8 +18,8 @@ class Magus: Character {
         target.life += careLifePoints
     }
     
-    override func describe() {
+    override func describe() -> String {
     let dead = isDead() ? "- Mort" : "" // ternary condition
-    print("🥋:\(self.name) - ❤️\(self.life) - 💊\(self.careLifePoints) \(dead)")
+    return "🥋:\(self.name) - ❤️\(self.life) - 💊\(self.careLifePoints) \(dead)"
           }
 }

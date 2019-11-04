@@ -7,11 +7,12 @@
 //
 import Foundation
 
-let start = GameManager()
+let start = GameManager() // create an instance of GameManager that allows you to manage the game
 
-start.rules()
+start.rules() // start game with the rules
 
-func getStringFromUser() -> String {
+
+func getStringFromUser() -> String { // readline function for strings
     let userChoice = readLine()
     if let choice = userChoice { //verify that the unwrapping has succeeded: choice!=nil
         return choice
@@ -20,8 +21,8 @@ func getStringFromUser() -> String {
         return getStringFromUser()
     }
 }
-
-func getIntFromUser() -> Int {
+ 
+func getIntFromUser() -> Int { // readline function for integers
     if let userChoice = readLine() { // unwrapping securely the optional readLine
         if let intFromUser = Int(userChoice) { // unwrapping securely the optional intFromUser
             return intFromUser

@@ -11,3 +11,4 @@ class Sword: Weapon {
         super.init(damage: 10, name: "Epée")
     }
 }
+

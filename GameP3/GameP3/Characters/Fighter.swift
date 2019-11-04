@@ -8,7 +8,7 @@
 
 class Fighter: Character {
     init(name: String) {
-        super.init(name: name, lifeStart: 100, life: 100)
+        super.init(name: name, lifeStart: 50, life: 50)
         self.weapon = Sword()
     }
 }

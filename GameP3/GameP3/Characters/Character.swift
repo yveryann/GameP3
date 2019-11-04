@@ -9,6 +9,7 @@
 class Character {
     var name: String
     var statsOfFights = 0
+    var numberDamage = 0
     var lifeStart: Int
     var life: Int{
         didSet {
@@ -29,11 +30,12 @@ class Character {
     }
     
     func attack(_ target: Character) {
-        target.life -= self.weapon.damage
-        statsOfFights += 1
+        target.life -= self.weapon.damage // we remove the number of damage according to the characteristics of the attacker's weapon at the target
+        statsOfFights += 1 // use the statsOfFight variable to calculate the number of fights performed
+        numberDamage +=  self.weapon.damage // use the numberDamage variable to calculate the number of damage received
     }
     
-    static func isAlreadyExistingName(_ name: String) -> Bool {
+    static func isAlreadyExistingName(_ name: String) -> Bool { // condition to check if the name is unreliable
         if Character.names.contains(name.lowercased()){
             print("Erreur, ce nom est déjà utilisé !")
             return true
@@ -42,15 +44,15 @@ class Character {
         return false
     }
     
-    func isDead() -> Bool {
+    func isDead() -> Bool { // condition to check if the character is dead
         if life <= 0 {
             return true
         }
         return false
         }
     
-    func describe() {
-        let dead = isDead() ? "- Mort" : "" // ternary condition
-        print("🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) \(dead)")
+    func describe() -> String { // description of the characteristics of the character with information if he is dead
+        let dead = isDead() ? "- Mort" : "" // ternary condition to see if the character is dead
+        return "🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) \(dead)"
               }
 }

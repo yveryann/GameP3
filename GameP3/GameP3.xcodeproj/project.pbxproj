@@ -85,11 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				888A86B4233902F300513027 /* Weapon.swift */,
-				888F8862234B4EC1002DDC2F /* MagusStick.swift */,
 				88E5C999229536B80071CB7A /* Sword.swift */,
-				88E5C99B229536D20071CB7A /* ShockWave.swift */,
 				88E5C99D229536EC0071CB7A /* FlameThrower.swift */,
+				88E5C99B229536D20071CB7A /* ShockWave.swift */,
 				88E5C99F229537050071CB7A /* Chopped.swift */,
+				888F8862234B4EC1002DDC2F /* MagusStick.swift */,
 				883E3BC92358B0420085F5ED /* BonusChest.swift */,
 			);
 			path = Weapons;

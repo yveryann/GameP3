@@ -8,7 +8,7 @@
 
 class Dwarf: Character {
     init(name: String) {
-        super.init(name: name, lifeStart: 80, life: 80)
+        super.init(name: name, lifeStart: 40, life: 40)
         self.weapon = Chopped()
     }
 }

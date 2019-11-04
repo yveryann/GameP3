@@ -8,7 +8,7 @@
 
 class Colossus: Character {
     init(name: String) {
-        super.init(name: name, lifeStart: 400, life: 400)
+        super.init(name: name, lifeStart: 90, life: 90)
         self.weapon = FlameThrower()
     }
 }
