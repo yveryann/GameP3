@@ -122,9 +122,11 @@ class GameManager {
     
     
     func stat(_ index:Int) {
-        print("Equipe \(teams[index].name) vous avez réaliser \(rounds) combats") // display the number of turns to be made by the team
-        print("Le personnage \(teams[index].members[index].name) à réalisé \(teams[index].members[index].statsOfFights)")
-        print("Ce personnage à reçu \(teams[index].members[index].numberDamage) dégâts.")
+            print("Equipe \(teams[index].name).")
+            print("Le personnage \(teams[index].members[index].name) à réalisé \(teams[index].members[index].statsOfFights) combats sur \(rounds) tour de jeu.")
+            print("\(teams[index].members[0].name) a reçu \(teams[index].members[0].numberDamage) dégâts.")
+            print("\(teams[index].members[1].name) a reçu \(teams[index].members[1].numberDamage) dégâts.")
+            print("\(teams[index].members[2].name) a reçu \(teams[index].members[2].numberDamage) dégâts.")
     }
 
 
