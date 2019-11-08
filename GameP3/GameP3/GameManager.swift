@@ -90,8 +90,8 @@ class GameManager {
             attackingTeam = attackingTeam === teams[0] ? teams[1] : teams[0] // ternary condition to reverse defender attacking roles
             defendingTeam = attackingTeam === teams[0] ? teams[1] : teams[0] // ternary condition to reverse defender attacking roles
             
-        } while (attackingTeam.isTeamAlive()) && (attackingTeam.hasOnlyMagus())// as long as the attacking team to a player alive
-        winner(for: defendingTeam) // display of the winner
+        } while (attackingTeam.isTeamAlive()) && (attackingTeam.hasOnlyMagus()) && (defendingTeam.hasOnlyMagus())// as long as the attacking team to a player alive
+        congratsWinner(for: defendingTeam) // display of the winner
         print()
         print("=========================================")
         stat(0) // display game statistics
@@ -99,14 +99,14 @@ class GameManager {
         stat(1) // display game statistics
     }
     
-    func winner(for player: Team) {
+    func congratsWinner(for player: Team) {
         print("""
                                     ⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️
-                                👏👏 Félicitattions équipe\(player.name) vous êtes le vainqueur du combat. 👏👏
+                                👏👏 Félicitattions équipe \(player.name) vous êtes le vainqueur du combat. 👏👏
             
-                                                                    ☠️☠️☠️☠️☠️
+                                                                ☠️☠️☠️☠️☠️
             
-                                                    MERCI D'AVOIR JOUE A CET INCROYABLE COMBAT.
+                                                MERCI D'AVOIR JOUE A CET INCROYABLE COMBAT.
             """)
     }
     
@@ -122,16 +122,20 @@ class GameManager {
             - \(teams[index].members[0].describe())
             - \(teams[index].members[0].statsOfFights) combats.
             - \(teams[index].members[0].numberDamage) dégâts infligés.
+            - \(teams[index].members[0].life - teams[index].members[0].lifeStart) pts de vie.
             
             Le personnage \(teams[index].members[1].name):
             - \(teams[index].members[1].describe())
             - \(teams[index].members[1].statsOfFights) combats.
             - \(teams[index].members[1].numberDamage) dégâts infligés.
+            - \(teams[index].members[1].life - teams[index].members[1].lifeStart) pts de vie.
             
             Le personnage \(teams[index].members[2].name):
             - \(teams[index].members[2].describe())
             - \(teams[index].members[2].statsOfFights) combats.
             - \(teams[index].members[2].numberDamage) dégâts infligés.
+            - \(teams[index].members[2].life - teams[index].members[2].lifeStart) pts de vie.
+            
             """)
     }
     
