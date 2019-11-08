@@ -100,4 +100,27 @@ class Team {
         return false
     }
     
+    func hasOnlyMagus() -> Bool {
+        var numberOfMagus = 0
+        for member in members {
+            if member is Magus && !member.isDead() {
+                numberOfMagus += 1
+            }
+        }
+        if numberOfMagus == numberOfAliveCharacters() {
+            return true
+        }
+        return false
+    }
+    
+    func numberOfAliveCharacters() -> Int {
+        var count = 0
+        for member in members {
+            if !member.isDead() {
+                count += 1
+            }
+        }
+        return count
+    }
+    
 }
