@@ -90,7 +90,7 @@ class GameManager {
             attackingTeam = attackingTeam === teams[0] ? teams[1] : teams[0] // ternary condition to reverse defender attacking roles
             defendingTeam = attackingTeam === teams[0] ? teams[1] : teams[0] // ternary condition to reverse defender attacking roles
             
-        } while (attackingTeam.isTeamAlive()) && (attackingTeam.hasOnlyMagus()) && (defendingTeam.hasOnlyMagus())// as long as the attacking team to a player alive
+        } while (attackingTeam.isTeamAlive()) && attackingTeam.hasOnlyMagus() == false// as long as the attacking team to a player alive
         congratsWinner(for: defendingTeam) // display of the winner
         print()
         print("=========================================")
