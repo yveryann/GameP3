@@ -112,31 +112,10 @@ class GameManager {
     
     
     func stat(_ index:Int) {
-        
-        print("""
-            La partie s'est fini en \(rounds) tour de jeu.
-            
-            
-            
-            Le personnage \(teams[index].members[0].name):
-            - \(teams[index].members[0].describe())
-            - \(teams[index].members[0].statsOfFights) combats.
-            - \(teams[index].members[0].numberDamage) dégâts infligés.
-            - \(teams[index].members[0].life - teams[index].members[0].lifeStart) pts de vie.
-            
-            Le personnage \(teams[index].members[1].name):
-            - \(teams[index].members[1].describe())
-            - \(teams[index].members[1].statsOfFights) combats.
-            - \(teams[index].members[1].numberDamage) dégâts infligés.
-            - \(teams[index].members[1].life - teams[index].members[1].lifeStart) pts de vie.
-            
-            Le personnage \(teams[index].members[2].name):
-            - \(teams[index].members[2].describe())
-            - \(teams[index].members[2].statsOfFights) combats.
-            - \(teams[index].members[2].numberDamage) dégâts infligés.
-            - \(teams[index].members[2].life - teams[index].members[2].lifeStart) pts de vie.
-            
-            """)
+        print("La partie s'est fini en \(rounds) tour de jeu.")
+        for member in teams[index].members {
+            member.stats()
+        }
     }
     
     

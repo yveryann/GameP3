@@ -55,4 +55,14 @@ class Character {
         let dead = isDead() ? "- Mort" : "" // ternary condition to see if the character is dead
         return "🥋:\(self.name) - ❤️\(self.life) - 🗡\(self.weapon.damage) \(dead)"
               }
+    
+    func stats() -> String {
+        return """
+        Le personnage \(name):
+        - \(describe())
+        - \(statsOfFights) combats.
+        - \(numberDamage) dégâts infligés.
+        - \(life - lifeStart) pts de vie.
+        """
+    }
 }
