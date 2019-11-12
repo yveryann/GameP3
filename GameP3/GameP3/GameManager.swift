@@ -113,12 +113,9 @@ class GameManager {
     
     func stat(_ index:Int) {
         print("La partie s'est fini en \(rounds) tour de jeu.")
+        
         for member in teams[index].members {
-            member.stats()
+            print("\(member.stats())")
         }
     }
-    
-    
-    
-    
 }
