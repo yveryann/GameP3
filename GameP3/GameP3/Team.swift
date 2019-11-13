@@ -15,16 +15,16 @@ class Team {
         self.name = name
         self.members = members
     }
-    // fonction pour la création des personnages dans l'équipe
+    // function for creating characters in the team
     func createMembers()  {
         print()
         print("Equipe \(name) :")
-        // boucle permettant de créer 3 personnages
+        // loop to create 3 characters
         for index in 1...3 {
             var input: String
             var choiceUserOne = Int()
             repeat {
-               // affichage des personnages et de leurs spécificité
+               // display of characters and their specificity
                 print("""
                     Choix personnage \(index) :")
                     1. Fighter:     ❤️ 50  🗡 10
@@ -34,16 +34,16 @@ class Team {
                     5. Magus:       ❤️ 30   💊 20
                     """)
                 choiceUserOne = getIntFromUser()
-            } // tant que le choix n'est pas entre 1 et 5
+            } // as long as the choice is not between 1 and 5
                 while choiceUserOne != 1 && choiceUserOne != 2 && choiceUserOne != 3 && choiceUserOne != 4 && choiceUserOne != 5
             
             repeat {
-                // choix du nom unique pour le personnage
+                // choice of the unique name for the character
                 print("Entrer un nom unique de votre personnage\(index):")
                 input = getStringFromUser()
-            } // tant que l'unicité du nom n'est pas vérifié
+            } // as long as the uniqueness of the name is not verified
                 while Character.isAlreadyExistingName(input)
-            // enregistrer le personnage dans le tableau avec son nom unique
+            // save the character in the table with his unique name
             var warrior: Character
             switch choiceUserOne {
             case 1:
@@ -69,7 +69,7 @@ class Team {
     }
     
     func description() {
-        // description de l'équipe et des personnages avec leur numéro dans le tableau
+        // description of the team and characters with their number in the table
         print("\(self.name) voici les personnages de votre équipe: ")
         for (index,character) in members.enumerated() {
             print("\(index + 1) - \(character.describe())")
@@ -113,7 +113,7 @@ class Team {
         return false
     }
     
-    func numberOfAliveCharacters() -> Int {
+    private func numberOfAliveCharacters() -> Int {
         var count = 0
         for member in members {
             if !member.isDead() {
